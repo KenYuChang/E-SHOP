@@ -6,7 +6,6 @@ import Logo from '../assets/Logo.png'
 const Header = () => {
 
   const { cartItems } = useSelector((state) => state.cart);
-  console.log(cartItems);
     return (
       <header>
         <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
