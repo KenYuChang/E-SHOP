@@ -6,6 +6,7 @@ import Order from '../models/orderModel.js';
 // @access private
 const addOrderItems = asyncHanlder(async (req, res) => {
   const { orderItems, shippingAddress, paymentMethod, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body;
+
   if (orderItems && orderItems.length === 0) {
     res.status(400);
     throw new Error('no order items');
@@ -13,7 +14,7 @@ const addOrderItems = asyncHanlder(async (req, res) => {
     const order = new Order({
       orderItems: orderItems.map((x) => ({
         ...x,
-        productId: x._id,
+        product: x._id,
         _id: undefined,
       })),
       user: req.user._id,
@@ -26,6 +27,7 @@ const addOrderItems = asyncHanlder(async (req, res) => {
     });
 
     const createdOrder = await order.save();
+
     res.status(201).json(createdOrder);
   }
 });
@@ -35,8 +37,7 @@ const addOrderItems = asyncHanlder(async (req, res) => {
 // @access private
 const getMyOrders = asyncHanlder(async (req, res) => {
   const orders = await Order.find({ user: req.user._id });
-
-  res.status(200).json(orders);
+  res.json(orders);
 });
 
 // @desc get order by ID
@@ -45,11 +46,12 @@ const getMyOrders = asyncHanlder(async (req, res) => {
 const getOrderById = asyncHanlder(async (req, res) => {
   // add user name and email => populate
   const order = await Order.findById(req.params.id).populate('user', 'name email');
+
   if (order) {
-    res.staus(200).json(order);
+    res.json(order);
   } else {
     res.status(404);
-    throw new Error('order not found');
+    throw new Error('Order not found');
   }
 });
 
