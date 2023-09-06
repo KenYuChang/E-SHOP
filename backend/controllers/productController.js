@@ -5,7 +5,7 @@ import Product from '../models/productModel.js';
 // @route GET /api/products
 // @access public
 const getProducts = asyncHanlder(async (req, res) => {
-  const pageSize = 4;
+  const pageSize = 3;
   const page = Number(req.query.pageNumber) || 1;
   // regular expression => parts of keywords are same will be searching
   // options => uppercase and lowercase are both ok
