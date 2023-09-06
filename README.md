@@ -1,4 +1,4 @@
-# E-SHOP e_Commerce Platform
+# E-SHOP E-Commerce Platform
 > Demo Link: [E-SHOP-DEMO](https://e-shop-a0pc.onrender.com/)
 
 > Platform built with MongoDB, Express, React and Node && Redux Toolkit
