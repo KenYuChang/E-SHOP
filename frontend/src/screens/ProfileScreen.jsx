@@ -46,6 +46,7 @@ const ProfileScreen = () => {
 
   return (
     <Row>
+      {loadingUpdateProfile && <Loader />}
       <Col md={3}>
         <h2>User Profile</h2>
         <Form onSubmit={submitHandler}>
