@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 const App = () => {
   return (
     <>
+      <ToastContainer />
       <Header />
       <main className="py-3">
         <Container>
