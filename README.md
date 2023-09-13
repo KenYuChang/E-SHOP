@@ -5,6 +5,15 @@
 
 <img src='./frontend/build/images/screenshot.jpg'>
 
+## Testing Account
+> Admin
+- Account: admin@example.com
+- Password: 123456
+
+> User
+- Account: ken@example.com
+- Password: 123456
+
 ## Features
 
 > Users
